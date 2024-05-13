@@ -22,13 +22,13 @@ public:
 
         if (p->IsInCombat() || p->IsInFlight() || p->GetMap()->IsBattlegroundOrArena())
         {
-            ChatHandler(p->GetSession()).PSendSysMessage("You can not use this item right now");
+            ChatHandler(p->GetSession()).PSendSysMessage("你现在不能使用");
             return false;
         }
 
         if (p->getLevel() == max_lvl)
         {
-            ChatHandler(p->GetSession()).PSendSysMessage("You are already Max Level");
+            ChatHandler(p->GetSession()).PSendSysMessage("你已经是最高等级");
             return false;
         }
 
@@ -36,7 +36,7 @@ public:
         p->GiveLevel(newLevel);
         p->SetUInt32Value(PLAYER_XP, 0);
         p->DestroyItemCount(i->GetEntry(), 1, true);
-        ChatHandler(p->GetSession()).PSendSysMessage("You have used one level coin");
+        ChatHandler(p->GetSession()).PSendSysMessage("你已经使用过一枚升级硬币");
 
         return true;
     }
